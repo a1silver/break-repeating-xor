@@ -180,6 +180,7 @@ public class Main {
         challengeTwo();
         challengeThree();
         challengeFour();
+        challengeFive();
     }
 
     // == Challenges ==
@@ -256,6 +257,18 @@ public class Main {
 
         }
 
+    }
+
+    public static void challengeFive() {
+        String in = "Burning 'em, if you ain't quick and nimble\nI go crazy when I hear a cymbal";
+        String out = bytesToHex(repeatingKeyXOR(in.getBytes(), "ICE".getBytes()));
+        String solution = "0b3637272a2b2e63622c2e69692a23693a2a3c6324202d623d63343c2a26226324272765272" + "a282b2f20430a652e2c652a3124333a653e2b2027630c692b20283165286326302e27282f";
+        System.out.println("Challenge 5");
+        System.out.println("=================");
+        System.out.println("Input: " + in);
+        System.out.println("Output: " + out);
+        System.out.println(out.equals(solution) ? "Challenge passed" : "Challenge failed"); // Check to see if the output equals the solution
+        System.out.println();
     }
 
 }
