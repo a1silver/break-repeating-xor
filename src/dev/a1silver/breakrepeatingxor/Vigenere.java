@@ -3,6 +3,7 @@ package dev.a1silver.breakrepeatingxor;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 import static dev.a1silver.breakrepeatingxor.Main.hammingDistance;
 
@@ -44,10 +45,16 @@ public class Vigenere {
         final int MIN_LENGTH = 2;
         final int MAX_LENGTH = 30;
 
-        return IntStream.range(MIN_LENGTH, MAX_LENGTH)
-                .boxed()
-                .min(Comparator.comparingDouble(a -> scoreKeySize(a, ciphertext)))
-                .orElse(MIN_LENGTH);  // Default to minLength if no min value found (which is unlikely)
+        int[] range = IntStream.range(MIN_LENGTH, MAX_LENGTH).toArray();
+        double minValue = Double.MAX_VALUE;
+        for (int value : range) {
+            double result = scoreKeySize(value, ciphertext);
+            if (result < minValue) {
+                minValue = result;
+            }
+        }
+
+        return (int) minValue;
     }
 
 
