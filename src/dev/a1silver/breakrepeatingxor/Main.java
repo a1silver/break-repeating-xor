@@ -176,7 +176,21 @@ public class Main {
 
     // == Main ==
     public static void main(String[] args) throws IOException {
-        System.out.println("Hello, world");
+        challengeOne();
+    }
+
+    // == Challenges ==
+    public static void challengeOne() {
+        String in = "49276d206b696c6c696e6720796f757220627261696e206c696b65206120706f69736f6e6f7573206d757368726f6f6d";
+        String out = bytesToBase64(hexToBytes(in));
+        String solution = "SSdtIGtpbGxpbmcgeW91ciBicmFpbiBsaWtlIGEgcG9pc29ub3VzIG11c2hyb29t";
+
+        System.out.println("Challenge 1");
+        System.out.println("===========");
+        System.out.println("Input: " + in);
+        System.out.println("Output: " + out);
+        System.out.println("Challenge " + (out.equals(solution) ? "passed" : "failed"));
+        System.out.println();
     }
 
 }
