@@ -4,19 +4,9 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.stream.IntStream;
 
+import static dev.a1silver.breakrepeatingxor.Main.hammingDistance;
+
 public class Vigenere {
-
-    public static int hammingDistance(byte[] bytes1, byte[] bytes2) {
-        if (bytes1.length != bytes2.length) {
-            throw new IllegalArgumentException("Byte arrays must be of equal length");
-        }
-
-        int distance = 0;
-        for (int i = 0; i < bytes1.length; i++) {
-            distance += Integer.bitCount(bytes1[i] ^ bytes2[i]);
-        }
-        return distance;
-    }
 
     public static byte[] decryptRepeatingKeyXOR(byte[] ciphertext, byte[] key) {
         byte[] decrypted = new byte[ciphertext.length];
@@ -27,20 +17,20 @@ public class Vigenere {
     }
 
     public static double scoreKeySize(int keySize, byte[] ciphertext) {
+        String cipherString = new String(ciphertext);
+
         int sliceSize = 2 * keySize;
 
         int numSamples = ciphertext.length / sliceSize - 1;
 
         double score = 0;
         for (int i = 0; i < numSamples; i++) {
+            int slice1Start = i* sliceSize;
+            int slice1End = i* sliceSize + keySize;
 
-            // Slicing the byte array
-            byte[] slice1 = new byte[keySize];
-            byte[] slice2 = new byte[keySize];
-            System.arraycopy(ciphertext, i * sliceSize, slice1, 0, keySize);
-            System.arraycopy(ciphertext, i * sliceSize + keySize, slice2, 0, keySize);
-
-            score += hammingDistance(slice1, slice2);
+            int slice2Start = i* sliceSize + keySize;
+            int slice2End = i* sliceSize + 2* keySize;
+            score += hammingDistance(cipherString.substring(slice1Start, slice1End), cipherString.substring(slice2Start, slice2End));
         }
 
         score /= keySize;
@@ -63,6 +53,7 @@ public class Vigenere {
 
     public static Structures.Pair<byte[],byte[]> repeatingKeyXOR(byte[] ciphertext) {
         System.out.println(findKeySize(ciphertext));
+        System.out.println(hammingDistance("this is a test", "wokka wokka!!!"));
 
         return null;
     }
