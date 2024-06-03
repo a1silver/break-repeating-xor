@@ -178,6 +178,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         challengeOne();
         challengeTwo();
+        challengeThree();
     }
 
     // == Challenges ==
@@ -204,6 +205,18 @@ public class Main {
         System.out.println("Inputs: " + in1 + ", " + in2);
         System.out.println("Output: " + out);
         System.out.println("Challenge " + (out.equals(solution) ? "passed" : "failed"));
+        System.out.println();
+    }
+
+    public static void challengeThree() {
+        String in = "1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736";
+        Structures.Pair<Character, byte[]> result = findKey(in);
+        String out = new String(result.value);
+
+        System.out.println("Challenge 3");
+        System.out.println("===========");
+        System.out.println("Input: " + in);
+        System.out.println("Key: " + result.key + "   Output: " + out);
         System.out.println();
     }
 
