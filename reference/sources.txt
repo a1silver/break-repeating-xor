@@ -1,0 +1,6 @@
+"My walkthrough of the Cryptopals challenges"
+	https://cedricvanrompay.gitlab.io/cryptopals/
+	https://cedricvanrompay.gitlab.io/cryptopals/challenges/01-to-08.html
+
+"Challenge 6 - Break repeating-key XOR"
+	https://github.com/vijithassar/cryptopals-literate-python/blob/master/challenge06.py.md
