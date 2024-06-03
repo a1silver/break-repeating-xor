@@ -157,14 +157,14 @@ public class Main {
         return new Structures.Pair<>(bestKey, finalDecrypted);
     }
 
-    public static int hammingDistance(byte[] buf1, byte[] buf2) {
-        if (buf1.length != buf2.length) {
-            return -1;
+    public static int hammingDistance(byte[] bytes1, byte[] bytes2) {
+        if (bytes1.length != bytes2.length) {
+            throw new IllegalArgumentException("Byte arrays must be of equal length");
         }
 
         int distance = 0;
-        for (int i = 0; i < buf1.length; i++) {
-            distance += Integer.bitCount(buf1[i] ^ buf2[i]);
+        for (int i = 0; i < bytes1.length; i++) {
+            distance += Integer.bitCount(bytes1[i] ^ bytes2[i]);
         }
         return distance;
     }
