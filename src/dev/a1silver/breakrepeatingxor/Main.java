@@ -181,6 +181,7 @@ public class Main {
         challengeThree();
         challengeFour();
         challengeFive();
+        challengeSix();
     }
 
     // == Challenges ==
@@ -269,6 +270,28 @@ public class Main {
         System.out.println("Output: " + out);
         System.out.println(out.equals(solution) ? "Challenge passed" : "Challenge failed"); // Check to see if the output equals the solution
         System.out.println();
+    }
+
+    public static void challengeSix() throws IOException {
+        StringBuilder in = new StringBuilder();
+        try (BufferedReader reader = new BufferedReader(new FileReader("challenge6.txt"))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                in.append(line);
+            }
+        } catch (IOException ignored) {
+
+        }
+
+        try {
+            byte[] ciphertext = Base64.getDecoder().decode(in.toString());
+            Structures.Pair<byte[], byte[]> result = Vigenere.repeatingKeyXOR(ciphertext);
+
+            // System.out.println("Key: " + new String(result.key));
+            // System.out.println("Decrypted Text: " + new String(result.value));
+        } catch (IllegalArgumentException e) {
+            System.err.println("Failed to decode Base64: " + e.getMessage());
+        }
     }
 
 }
