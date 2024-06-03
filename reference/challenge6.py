@@ -21,7 +21,7 @@ def remote():
 
 ciphertext = b64decode(remote())
 
-with open("./06.txt") as file:
+with open("././challenge6.txt") as file:
         ciphertext = b64decode(file.read())
 
 def score_vigenere_key_size(candidate_key_size, ciphertext):
