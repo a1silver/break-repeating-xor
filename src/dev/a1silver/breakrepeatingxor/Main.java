@@ -179,6 +179,7 @@ public class Main {
         challengeOne();
         challengeTwo();
         challengeThree();
+        challengeFour();
     }
 
     // == Challenges ==
@@ -218,6 +219,43 @@ public class Main {
         System.out.println("Input: " + in);
         System.out.println("Key: " + result.key + "   Output: " + out);
         System.out.println();
+    }
+
+    public static void challengeFour() {
+        try (BufferedReader reader = new BufferedReader(new FileReader("challenge4.txt"))) {
+            String line;
+            String encryptedString = null;
+            double maxScore = 0;
+            String decryptedText = null;
+            char key = '\0';
+
+            while ((line = reader.readLine()) != null) {
+                Structures.Pair<Character, byte[]> stuff = findKey(line);
+                char potentialKey = stuff.key;
+
+                byte[] input = hexToBytes(line);
+                byte[] decrypted = keyXOR(input, (byte) potentialKey);
+
+                String potentialDecryptedText = new String(decrypted);
+                double score = scoreText(potentialDecryptedText);
+
+                if (score > maxScore) {
+                    maxScore = score;
+                    encryptedString = line;
+                    decryptedText = potentialDecryptedText;
+                    key = potentialKey;
+                }
+            }
+
+            System.out.println("Challenge 4");
+            System.out.println("=================");
+            System.out.println("Encrypted String: " + encryptedString);
+            System.out.println("Key: " + key);
+            System.out.println("Decrypted Text: " + decryptedText);
+        } catch (IOException ignored) {
+
+        }
+
     }
 
 }
