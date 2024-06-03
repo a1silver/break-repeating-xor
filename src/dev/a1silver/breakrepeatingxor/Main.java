@@ -177,6 +177,7 @@ public class Main {
     // == Main ==
     public static void main(String[] args) throws IOException {
         challengeOne();
+        challengeTwo();
     }
 
     // == Challenges ==
@@ -188,6 +189,19 @@ public class Main {
         System.out.println("Challenge 1");
         System.out.println("===========");
         System.out.println("Input: " + in);
+        System.out.println("Output: " + out);
+        System.out.println("Challenge " + (out.equals(solution) ? "passed" : "failed"));
+        System.out.println();
+    }
+
+    public static void challengeTwo() {
+        String in1 = "1c0111001f010100061a024b53535009181c";
+        String in2 = "686974207468652062756c6c277320657965";
+        String out = bytesToHex(fixedXOR(hexToBytes(in1), hexToBytes(in2)));
+        String solution = "746865206b696420646f6e277420706c6179";
+        System.out.println("Challenge 2");
+        System.out.println("===========");
+        System.out.println("Inputs: " + in1 + ", " + in2);
         System.out.println("Output: " + out);
         System.out.println("Challenge " + (out.equals(solution) ? "passed" : "failed"));
         System.out.println();
