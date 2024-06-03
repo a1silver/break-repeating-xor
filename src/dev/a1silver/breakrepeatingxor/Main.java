@@ -14,32 +14,32 @@ public class Main {
     public static final HashMap<Character, Double> frequencies = new HashMap<>();
 
     static {
-        frequencies.put('a', 8.55/100);
-        frequencies.put('b', 1.6/100);
-        frequencies.put('c', 3.16/100);
-        frequencies.put('d', 3.87/100);
-        frequencies.put('e', 12.10/100);
-        frequencies.put('f', 2.18/100);
-        frequencies.put('g', 2.09/100);
-        frequencies.put('h', 4.96/100);
-        frequencies.put('i', 7.33/100);
-        frequencies.put('j', 0.22/100);
-        frequencies.put('k', 0.81/100);
-        frequencies.put('l', 4.21/100);
-        frequencies.put('m', 2.53/100);
-        frequencies.put('n', 7.17/100);
-        frequencies.put('o', 7.47/100);
-        frequencies.put('p', 2.07/100);
-        frequencies.put('q', 0.10/100);
-        frequencies.put('r', 6.33/100);
-        frequencies.put('s', 6.73/100);
-        frequencies.put('t', 8.94/100);
-        frequencies.put('u', 2.68/100);
-        frequencies.put('v', 1.06/100);
-        frequencies.put('w', 1.83/100);
-        frequencies.put('x', 0.19/100);
-        frequencies.put('y', 1.72/100);
-        frequencies.put('z', 0.11/100);
+        frequencies.put('a', 8.55 / 100);
+        frequencies.put('b', 1.6 / 100);
+        frequencies.put('c', 3.16 / 100);
+        frequencies.put('d', 3.87 / 100);
+        frequencies.put('e', 12.10 / 100);
+        frequencies.put('f', 2.18 / 100);
+        frequencies.put('g', 2.09 / 100);
+        frequencies.put('h', 4.96 / 100);
+        frequencies.put('i', 7.33 / 100);
+        frequencies.put('j', 0.22 / 100);
+        frequencies.put('k', 0.81 / 100);
+        frequencies.put('l', 4.21 / 100);
+        frequencies.put('m', 2.53 / 100);
+        frequencies.put('n', 7.17 / 100);
+        frequencies.put('o', 7.47 / 100);
+        frequencies.put('p', 2.07 / 100);
+        frequencies.put('q', 0.10 / 100);
+        frequencies.put('r', 6.33 / 100);
+        frequencies.put('s', 6.73 / 100);
+        frequencies.put('t', 8.94 / 100);
+        frequencies.put('u', 2.68 / 100);
+        frequencies.put('v', 1.06 / 100);
+        frequencies.put('w', 1.83 / 100);
+        frequencies.put('x', 0.19 / 100);
+        frequencies.put('y', 1.72 / 100);
+        frequencies.put('z', 0.11 / 100);
         frequencies.put(' ', 10.0);
     }
 
@@ -110,9 +110,9 @@ public class Main {
 
     /**
      * http://practicalcryptography.com/cryptanalysis/letter-frequencies-various-languages/english-letter-frequencies
-     *
+     * <p>
      * English Letter Frequencies in %
-     *
+     * <p>
      * A :  8.55        K :  0.81        U :  2.68
      * B :  1.60        L :  4.21        V :  1.06
      * C :  3.16        M :  2.53        W :  1.83

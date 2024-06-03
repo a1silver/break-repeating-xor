@@ -25,11 +25,11 @@ public class Vigenere {
 
         double score = 0;
         for (int i = 0; i < numSamples; i++) {
-            int slice1Start = i* sliceSize;
-            int slice1End = i* sliceSize + keySize;
+            int slice1Start = i * sliceSize;
+            int slice1End = i * sliceSize + keySize;
 
-            int slice2Start = i* sliceSize + keySize;
-            int slice2End = i* sliceSize + 2* keySize;
+            int slice2Start = i * sliceSize + keySize;
+            int slice2End = i * sliceSize + 2 * keySize;
             score += hammingDistance(cipherString.substring(slice1Start, slice1End), cipherString.substring(slice2Start, slice2End));
         }
 
@@ -51,7 +51,7 @@ public class Vigenere {
     }
 
 
-    public static Structures.Pair<byte[],byte[]> repeatingKeyXOR(byte[] ciphertext) {
+    public static Structures.Pair<byte[], byte[]> repeatingKeyXOR(byte[] ciphertext) {
         System.out.println(findKeySize(ciphertext));
         System.out.println(hammingDistance("this is a test", "wokka wokka!!!"));
 
