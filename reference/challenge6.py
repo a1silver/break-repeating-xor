@@ -109,6 +109,6 @@ def attack_repeating_key_xor(ciphertext):
 
 result = attack_repeating_key_xor(ciphertext)
 print("key:",result["key"],'\n')
-print(len(str(result['key'])))
+print(len(result["key"].decode()))
 print('message:\n')
 print(result["message"].decode())
