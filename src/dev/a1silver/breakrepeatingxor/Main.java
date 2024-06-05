@@ -287,6 +287,8 @@ public class Main {
             byte[] ciphertext = Base64.getDecoder().decode(in.toString());
             Structures.Pair<byte[], byte[]> result = Vigenere.attackRepeatingKeyXOR(ciphertext);
 
+            System.out.println("Challenge 6");
+            System.out.println("=================");
             System.out.println("Key: " + new String(result.value));
             System.out.println();
             System.out.println("Decrypted Text:");
