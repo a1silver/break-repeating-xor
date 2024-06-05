@@ -7,6 +7,9 @@ import static dev.a1silver.breakrepeatingxor.Main.hammingDistance;
 
 public class Vigenere {
 
+    /*
+    Create a new partial array given an original array of bytes, a start position, and a step value
+     */
     private static byte[] createPartArray(byte[] ciphertext, int start, int step) {
         int length = (ciphertext.length - start + step - 1) / step;
         byte[] part = new byte[length];
@@ -16,6 +19,9 @@ public class Vigenere {
         return part;
     }
 
+    /*
+    Find the longest array out of a list of byte arrays and return its length
+     */
     private static int getMaxLength(ArrayList<byte[]> arrays) {
         int maxLength = 0;
         for (byte[] array : arrays) {
@@ -26,6 +32,11 @@ public class Vigenere {
         return maxLength;
     }
 
+    /*
+    Find the score of a given key size when compared to an array of cipher bytes.
+    This key represents the probability the decrypted content is to be an English sentence.
+    Smaller key sizes are favored.
+     */
     public static double scoreKeySize(int keySize, byte[] ciphertext) {
         String cipherString = new String(ciphertext);
 
@@ -50,6 +61,10 @@ public class Vigenere {
         return score;
     }
 
+    /*
+    Determine the best key size for a given array of cipher bytes.
+    The given key is scored on how likely it will decrypt the given cipher text into an English sentence.
+     */
     public static int findKeySize(byte[] ciphertext) {
         final int MIN_LENGTH = 2;
         final int MAX_LENGTH = 30;
@@ -68,6 +83,10 @@ public class Vigenere {
         return minLength;
     }
 
+    /*
+    Perform a brute-force single-byte XOR attack on an array of cipher bytes.
+    Used by attackRepeatingKeyXOR to perform XORs on multiple sections of the main cipher text.
+     */
     public static Structures.Pair<byte[], byte[]> attackSingleByteXOR(byte[] ciphertext) {
         Structures.Pair<byte[], byte[]> best = null;
         int prevNbLetters = 0;
@@ -92,6 +111,9 @@ public class Vigenere {
         return best;
     }
 
+    /*
+    Perform a brute-force repeating-key XOR attack on an array of cipher bytes.
+     */
     public static Structures.Pair<byte[], byte[]> attackRepeatingKeyXOR(byte[] ciphertext) {
         int keysize = findKeySize(ciphertext);
         System.out.println(keysize);
