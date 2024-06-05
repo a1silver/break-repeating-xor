@@ -116,7 +116,7 @@ public class Vigenere {
      */
     public static Structures.Pair<byte[], byte[]> attackRepeatingKeyXOR(byte[] ciphertext) {
         int keysize = findKeySize(ciphertext);
-        System.out.println(keysize);
+        System.out.println("Key size: " + keysize);
 
         // We break encryption for each character of the key
         byte[] key = new byte[keysize];
