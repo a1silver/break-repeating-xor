@@ -182,6 +182,9 @@ public class Main {
         challengeFour();
         challengeFive();
         challengeSix();
+
+        System.out.println("=================\n");
+        System.out.println(">> Please see code references used for this project in ./references");
     }
 
     // == Challenges ==
