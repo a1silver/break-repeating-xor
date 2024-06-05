@@ -13,6 +13,22 @@ public class Main {
 
     public static final HashMap<Character, Double> frequencies = new HashMap<>();
 
+    /**
+     * http://practicalcryptography.com/cryptanalysis/letter-frequencies-various-languages/english-letter-frequencies
+     * <p>
+     * English Letter Frequencies in %
+     * <p>
+     * A :  8.55        K :  0.81        U :  2.68
+     * B :  1.60        L :  4.21        V :  1.06
+     * C :  3.16        M :  2.53        W :  1.83
+     * D :  3.87        N :  7.17        X :  0.19
+     * E : 12.10        O :  7.47        Y :  1.72
+     * F :  2.18        P :  2.07        Z :  0.11
+     * G :  2.09        Q :  0.10
+     * H :  4.96        R :  6.33
+     * I :  7.33        S :  6.73
+     * J :  0.22        T :  8.94
+     */
     static {
         frequencies.put('a', 8.55 / 100);
         frequencies.put('b', 1.6 / 100);
@@ -108,22 +124,6 @@ public class Main {
         return output;
     }
 
-    /**
-     * http://practicalcryptography.com/cryptanalysis/letter-frequencies-various-languages/english-letter-frequencies
-     * <p>
-     * English Letter Frequencies in %
-     * <p>
-     * A :  8.55        K :  0.81        U :  2.68
-     * B :  1.60        L :  4.21        V :  1.06
-     * C :  3.16        M :  2.53        W :  1.83
-     * D :  3.87        N :  7.17        X :  0.19
-     * E : 12.10        O :  7.47        Y :  1.72
-     * F :  2.18        P :  2.07        Z :  0.11
-     * G :  2.09        Q :  0.10
-     * H :  4.96        R :  6.33
-     * I :  7.33        S :  6.73
-     * J :  0.22        T :  8.94
-     */
     public static double scoreText(String text) {
 
         int totalCharacters = text.length();
