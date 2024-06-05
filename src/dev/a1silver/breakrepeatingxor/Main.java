@@ -285,10 +285,12 @@ public class Main {
 
         try {
             byte[] ciphertext = Base64.getDecoder().decode(in.toString());
-            Structures.Pair<byte[], byte[]> result = Vigenere.repeatingKeyXOR(ciphertext);
+            Structures.Pair<byte[], byte[]> result = Vigenere.attackRepeatingKeyXOR(ciphertext);
 
-            // System.out.println("Key: " + new String(result.key));
-            // System.out.println("Decrypted Text: " + new String(result.value));
+            System.out.println("Key: " + new String(result.value));
+            System.out.println();
+            System.out.println("Decrypted Text:");
+            System.out.println(new String(result.key));
         } catch (IllegalArgumentException e) {
             System.err.println("Failed to decode Base64: " + e.getMessage());
         }
